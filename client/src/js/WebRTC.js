@@ -23,7 +23,9 @@ WebRTC.create = function() {
     window.mozRTCSessionDescription ||
     window.RTCSessionDescription;
 
-    var servers = null;
+    var servers = {
+        iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }]
+    };
 
     this.pc = new window.PeerConnection(servers);
     this.pc.addStream(this.localStream);
